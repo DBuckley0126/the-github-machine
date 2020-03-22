@@ -1,9 +1,13 @@
 <h1>Welcome to the github machine:SHOW</h1>
 
 <div>
-    <% if @sorted_languages %>
-      <p><%= @sorted_languages %></p>
+    <% if @sorted_language_tally %>
+      <p><%= @sorted_language_tally %></p>
     <% else %>
       <h4>No langaues</h4>
     <% end %>
+
+    <% if @error %>
+    <p><%= @message %></p>
+    <% end%>
 </div>    
