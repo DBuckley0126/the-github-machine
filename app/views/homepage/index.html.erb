@@ -1,2 +1,8 @@
-<h1>Homepage#index</h1>
-<p>Find me in app/views/homepage/index.html.erb</p>
+<h1>Welcome to the github machine</h1>
+
+<div>
+  <h3>Enter github username</h3>
+  <%= form_with(url: show_path, method: "get", local: false) do %>
+    <%= render partial: 'input_form' %>
+  <% end %>
+</div>
