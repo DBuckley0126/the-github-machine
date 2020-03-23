@@ -15,7 +15,8 @@ require 'action_view/railtie'
 require 'sprockets/railtie'
 require 'pry'
 require 'octokit'
-# require 'turbolinks'
+require 'json'
+
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems

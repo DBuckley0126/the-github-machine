@@ -1,13 +1,22 @@
-<h1>Welcome to the github machine:SHOW</h1>
+<%= javascript_pack_tag 'show', 'data-turbolinks-track': 'reload' %>
 
-<div>
-    <% if @sorted_language_tally %>
-      <p><%= @sorted_language_tally %></p>
-    <% else %>
-      <h4>No langaues</h4>
+<h1>The GitHub Language Machine</h1>
+<div id="page-container">
+    <div id="show-container-border"></div>
+    <div id="show-container">
+    <h4><%= @username %></h4>
+    
+    </div>
+    <%= button_to "New Search", root_path, method: :get %>
+</div>
+
+
+
+<div id="pie-container">
+  <%= render partial: 'pie_graph', locals: @language_data %>
+  <div class="pie">
+    <% @language_data.each do |language| %>
+      <div class="pie__segment" style=<%= language[:pie_data]%>></div>
     <% end %>
-
-    <% if @error %>
-    <p><%= @message %></p>
-    <% end%>
+</div>
 </div>    

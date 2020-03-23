@@ -1,3 +1,11 @@
-<div id="form-container">
-    <%= render partial: 'input_form' %>
+<%= javascript_pack_tag 'homepage', 'data-turbolinks-track': 'reload' %>
+
+<h1>The GitHub Language Machine</h1>
+<h3>Enter Github Username</h3>
+<div id="page-container">
+    <div id="form-container-border"></div>
+    <div id="form-container">
+        <%= render partial: 'input_form' %>
+    </div>
 </div>
+

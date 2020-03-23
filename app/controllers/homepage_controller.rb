@@ -6,11 +6,23 @@ class HomepageController < ApplicationController
   end
 
   def show
+    if strong_params[:username].empty?
+      @error_message = "Please enter a GitHub Username"
+      render 'homepage/index'
+      return
+    end
+
     result = HomepageHelper.get_user_data(strong_params[:username])
 
-    @error = result[:error]
-    @message = result[:message]
-    @sorted_language_tally = result[:data]
+    if result[:error]
+      @error_message = result[:message]
+      render 'homepage/index'
+      return
+    end
+
+    
+    @language_data = HomepageHelper.process_data(result[:data][:languages])
+    @username = result[:data][:username]
   end
 
 end

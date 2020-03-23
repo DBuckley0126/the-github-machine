@@ -31,10 +31,6 @@ module HomepageHelper
       repo_data_array = client.get(user.repos_url + '?per_page=100')
       last_res_count = repo_data_array.count
 
-      # res = client.root.rels[:user_search].get(:query => { :q => "DBuckley0126" })
-      # res = client.root.rels[:user_repositories].get :uri => { :user => "DBuckley0126" }
-      # client.get(res.data.items[0].repos_url + '?per_page=100')
-
       while last_res_count == 100 do
         if client.last_response.rels[:next].href
           next_res = client.get(client.last_response.rels[:next].href)
@@ -56,7 +52,42 @@ module HomepageHelper
 
     language_tally = user_repo_languages.tally
     sorted_language_tally = language_tally.sort_by(&:last).reverse
-    { error: false, message: '', data: sorted_language_tally }
+    { error: false, message: '', data: {languages: sorted_language_tally, username: user.login } }
+  end
+
+  def process_data(languages)
+    output_array = []
+    total_count_of_repos = languages.sum{ |language| language[1]}
+    compressed_division = 100.0 / total_count_of_repos
+
+    current_sum_of_percentages = 0
+    languages.each do |language|
+      percentage = compressed_division * language[1]
+      output_array.push({language_name: language[0], language_tally: language[1], pie_data: "--offset: #{current_sum_of_percentages}; --value: #{percentage}; --bg: #{self.retrieve_color(language[0])}; --over50: #{percentage > 50 ? 1 : 0}"})
+      current_sum_of_percentages += percentage
+    end
+    output_array
+  end
+
+  def retrieve_color(language)
+    file = File.read('./lib/assets/github_colors.json')
+    color_hash = JSON.parse(file)
+    found_color = color_hash[language]
+    if found_color
+      self.verify_color(found_color["color"], color_hash)
+    else
+      random_picked_color = color_hash.to_a.sample(1).to_h
+      self.verify_color(random_picked_color[random_picked_color.keys[0]]["color"], color_hash)
+    end
+  end
+
+  def verify_color(color, color_hash)
+    if color
+      return color
+    else
+      random_picked_color = color_hash.to_a.sample(1).to_h
+      self.verify_color(random_picked_color[random_picked_color.keys[0]]["color"], color_hash)
+    end
   end
 
 end

@@ -1,10 +1,10 @@
 <%= form_with(url: show_path, method: "get", local: true) do %>
   <div id="input-container">
     <%= text_field_tag(:username, nil, placeholder: 'Github Username', autofocus: true) %>
-    <button type="submit">
+    <button id="submit-button" type="submit">
       <i class="fas fa-arrow-right"></i>
     </button>
-    
+    <h4 id="message" ><%= @error_message %></h4>
   </div>
 
 <% end %>
