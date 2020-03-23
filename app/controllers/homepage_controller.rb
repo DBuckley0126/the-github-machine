@@ -6,15 +6,15 @@ class HomepageController < ApplicationController
   end
 
   def show
-    result = HomepageHelper.get_user_data(strong_params)
-    
-    @error = result.error
-    @message = result.message
-    @sorted_language_tally = result.data
+    result = HomepageHelper.get_user_data(strong_params[:username])
+
+    @error = result[:error]
+    @message = result[:message]
+    @sorted_language_tally = result[:data]
   end
 
 end
 
 def strong_params
-  params.require(:username)
+  params.permit(:username)
 end

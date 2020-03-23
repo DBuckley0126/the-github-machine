@@ -1,3 +1,90 @@
 // Place all the styles related to the Homepage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+h1 {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  top: 50px;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+#form-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: rgba(255, 0, 0, 0);
+  height: 400px;
+  border-radius: 50%;
+  top: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    label {
+      text-align: center;
+      margin: auto;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+      color: #292929;
+      position: relative;
+    }
+    #input-container {
+      position: relative;
+      margin: auto;
+
+      input[type="text"] {
+        width: 200px;
+        margin: auto;
+        font-family: 'Roboto', sans-serif;
+        color: #292929;
+        font-weight: 400;
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 20px;
+        position: relative;
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: start;
+        background-color: -internal-light-dark-color(white, black);
+        border-width: 2px;
+        border-style: solid;
+        border-color: #a7a7a7;
+        border-image: initial;
+      }
+      button {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        color: #292929;
+        font-weight: 400;
+        font-size: 16px;
+        margin-left: 10px;
+        position: relative;
+      }
+    }
+
+  }
+}
+
+
