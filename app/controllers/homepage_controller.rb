@@ -2,12 +2,11 @@
 include HomepageHelper
 
 class HomepageController < ApplicationController
-  def index
-  end
+  def index; end
 
   def show
     if strong_params[:username].empty?
-      @error_message = "Please enter a GitHub Username"
+      @error_message = 'Please enter a GitHub Username'
       render 'homepage/index'
       return
     end
@@ -20,11 +19,9 @@ class HomepageController < ApplicationController
       return
     end
 
-    
     @language_data = HomepageHelper.process_data(result[:data][:languages])
     @username = result[:data][:username]
   end
-
 end
 
 def strong_params

@@ -1,5 +1,14 @@
+<div id="pie-container">
+  <div class="pie">
+    <% @language_data.each do |language| %>
+      <div class="pie__segment"></div>
+    <% end %>
+  </div>
+</div>    
 
 
-  <div class="pie__segment" style="--offset: 0; --value: 25; --bg: #db0a5b; --over50: 0;"></div>
- 
-
+<div id="hidden-variable-container">
+  <% @language_data.each do |language| %>
+    <div class="hidden-pie-variable"><%= language[:pie_data] %></div>
+  <% end %>
+</div>

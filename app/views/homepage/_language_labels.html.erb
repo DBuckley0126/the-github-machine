@@ -1,0 +1,9 @@
+<div id="labels-container">
+    <% @language_data.each do |language| %>
+      <div class="label-container">
+        <p class="label-tally"><%= language[:language_tally] %></p>
+        <div class="label-color-dot" style=<%= HomepageHelper.label_color_generator(language[:color]) %> ></div>
+        <p class="label-text"><%= language[:language_name] %></p>
+      </div>
+    <% end %>
+</div>

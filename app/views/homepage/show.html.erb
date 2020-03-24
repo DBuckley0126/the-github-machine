@@ -2,21 +2,15 @@
 
 <h1>The GitHub Language Machine</h1>
 <div id="page-container">
+<%= render partial: 'pie_graph', object: @language_data %>
     <div id="show-container-border"></div>
     <div id="show-container">
-    <h4><%= @username %></h4>
-    
+        <h4><%= @username %></h4>
     </div>
     <%= button_to "New Search", root_path, method: :get %>
+    
 </div>
 
 
 
-<div id="pie-container">
-  <%= render partial: 'pie_graph', locals: @language_data %>
-  <div class="pie">
-    <% @language_data.each do |language| %>
-      <div class="pie__segment" style=<%= language[:pie_data]%>></div>
-    <% end %>
-</div>
-</div>    
+<%= render partial: 'language_labels', object: @language_data %>
