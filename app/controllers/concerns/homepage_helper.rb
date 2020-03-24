@@ -11,7 +11,6 @@ module HomepageHelper
         per_page: 100
       )
 
-    # Fetch user
     begin
       user_results = client.root.rels[:user_search].get(query: { q: username })
 
