@@ -1,24 +1,30 @@
-# README
+# the-github-machine
+A web application that displays all languages associated with a GitHub username with a graphical interface.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Ruby Version
+2.7.0
 
-Things you may want to cover:
+## Getting Started
 
-- Ruby version
+Clone or download the repository to your local machine and run the following terminal commands inside of the directory:  
 
-- System dependencies
+bundle install
 
-- Configuration
+run 'rails s' in terminal to begin local hosting of Rails backend.  
 
-- Database creation
 
-- Database initialization
+## Built With
 
-- How to run the test suite
+* [Rails](https://github.com/rails/rails) - Used for the web development framework  
 
-- Services (job queues, cache servers, search engines, etc.)
+## Versioning
 
-- Deployment instructions
+This application uses Semantic Versioning.
 
-- ...
+## Authors
+
+* **Danny Buckley** - *Initial work* - [Me](https://github.com/DBuckley0126)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
